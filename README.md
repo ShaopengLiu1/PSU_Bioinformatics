@@ -7,7 +7,7 @@ Contact: spliu@psu.edu
 ### Content
 
 - [x] Personal_scripts
-   - bashrc_alias
+   - bash_profile
 - [x] Rotation_Dr. Dajiang Liu
 - [ ] Rotation_Dr. Qunhua Li
 - [ ] Rotation_Dr. David Koslicki
