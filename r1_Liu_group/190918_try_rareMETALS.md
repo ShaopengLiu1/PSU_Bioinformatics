@@ -1,6 +1,7 @@
 # Try rareMETALS package
 
 ### Infor:
+-------------
 
 - Last update: 09/20/2019
 - Recorder: Shaopeng Liu
@@ -9,6 +10,7 @@
 - [Link to paper](https://www.nature.com/articles/ng.2852)
 
 ### Outline:
+-------------
 
 - [ ] Install on ICS
 - [ ] Documentation and function interpretation
@@ -18,6 +20,7 @@
 - [ ] Summary & tips
 
 ### Contents:
+-------------
 
 1. ##### Install in R
 ```
@@ -29,9 +32,14 @@ library(devtools)
 install_github("dajiangliu/rareMETALS")
 ```
 
-> Issue1: ICS server need sudo privilege for R "devtools" (missing dependency)
+> <s>Issue1: ICS server need sudo privilege for R "devtools" (missing dependency)</s>  
+
+Reason: some compilation tools are needed for several dependencies of devtools
+Solution: Contact ICS to install "devtools" and "data.table"; 
 
 2. ##### Function interpretation
 [Link to Documentation](https://genome.sph.umich.edu/w/images/4/44/RareMETALS-manual.pdf)
+
+3. ##### Test example datasets
 
 
