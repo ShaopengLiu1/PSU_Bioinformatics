@@ -3,7 +3,7 @@
 ### Infor:
 -------------
 
-- Last update: 09/20/2019
+- Last update: 10/01/2019
 - Recorder: Shaopeng Liu
 - Email: spliu@psu.edu
 - [rareMETALS Github](https://github.com/dajiangliu/rareMETALS)
@@ -12,12 +12,10 @@
 ### Outline:
 -------------
 
-- [ ] Install on ICS
+- [x] Install on ICS
 - [ ] Documentation and function interpretation
-- [ ] Test data (/gpfs/group/dxl46/default/share/fang/dajiang/ldlc_res)
-- [ ] Running
-- [ ] Output
-- [ ] Summary & tips
+- [x] Test data
+- [x] Output
 
 ### Contents:
 -------------
@@ -37,9 +35,19 @@ install_github("dajiangliu/rareMETALS")
 Reason: some compilation tools are needed for several dependencies of devtools  
 Solution: Contact ICS to install "devtools" and "data.table";   
 
-2. ##### Function interpretation
-[Link to Documentation](https://genome.sph.umich.edu/w/images/4/44/RareMETALS-manual.pdf)
+2. ##### Function interpretation:
 
-3. ##### Test example datasets  
-data location: /storage/home/sml6467/work/projects/try_rareMETALS/data/example_data_github
+   - [Link to Documentation](https://genome.sph.umich.edu/w/images/4/44/RareMETALS-manual.pdf)
+
+3. ##### Test data:
+
+   - install tabix v0.2.5 or earlier
+   - follow the tutorial on Github
+   - example data: /storage/home/sml6467/work/projects/1909_try_rareMETALS/results/20190923_try_example_data
+
+4. ##### Output:
+
+   - Stored in local Rmd files
+
+
 
