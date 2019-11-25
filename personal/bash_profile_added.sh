@@ -31,6 +31,8 @@ export PATH=/storage/home/sml6467/work/tools/bin:$PATH
 export R_LIBS=/storage/work/sml6467/devtools:$R_LIBS
 export R_LIBS=/storage/home/sml6467/work/R/x86_64-redhat-linux-gnu-library/3.5:$R_LIBS
 
+### alias
+alias qjob='qstat | grep sml6467'
 #===================================
 
 
