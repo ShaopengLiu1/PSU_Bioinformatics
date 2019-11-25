@@ -2,13 +2,13 @@
 Based on the blood lipid exom data from 7 researches, the exploratory results are first-step output from rareMETALS.
 
 ## **Contents**
-- [Check list](#check_list_to_do)
-- [Files and results](#all_files_and_code)
-- [Next step](#next_step)
-- [Running notes](#running_note_backup)
+- [1. Check list](#check_list_to_do)
+- [2. Files and results](#all_files_and_code)
+- [3. Next step](#next_step)
+- [4. Running notes](#running_note_backup)
 
 
-### Check list <a name="check_list_to_do"></a>
+### 1. Check list <a name="check_list_to_do"></a>
 - [ ] Github Readme.md was updated in my fork, but hasn't merged to the master brance (see pull request in Github for more details)
 - [ ] group.range function failed on gene "TNN" (location: "2:178525989-178830802")
 Error message: 
@@ -42,7 +42,7 @@ Same as above, set error_index=733, rerun the range.group function
 - [ ] conditional.rareMETALS.range will generate error, [click here and scroll down to Test6](https://drive.google.com/file/d/1UvjL6ogHT1Yn8ZnZT-mhwuRAy_z9pPDd/view) for more details.
 
 
-### Resource location <a name="all_files_and_code"></a>
+### 2. Resource location <a name="all_files_and_code"></a>
 - All codes to reproduce the results are at `/gpfs/group/dxl46/default/private/shaopeng/projects/1909_try_rareMETALS/src`
 ```
 a1.0-1.1: run rareMETALS on the demo data and generate Rmd output
@@ -72,25 +72,26 @@ QQman check: /gpfs/group/dxl46/default/private/shaopeng/projects/1909_try_rareME
 PCA results: /gpfs/group/dxl46/default/private/shaopeng/projects/1909_try_rareMETALS/results/20191002_lipid_data/PCA_of_7_studies
 ```
 
-### Next step <a name="next_step"></a>
+### 3. Next step <a name="next_step"></a>
 - [ ] Trans-ethnic analysis
 
 
-### Running notes <a name="running_note_backup"></a>
+### 4. Running notes <a name="running_note_backup"></a>
 - **Running note**
 ```
 1. gene regions are obtained from Gencode hg38 annotation file 
 2. single.group is time consuming, by estimate it would take several days for chr1, so do it in multi-core manner
 3. range.group is MEM intensive, and it will easily kill the job due to resource limitation. So chop regions into pieces to run one by one.
-4. Number of loci remaining when requiring number of AF >= 1% for PCA plot
-Num of time that AF >= 1% | 1 | 2 | 3 | 4 | 5 | 6 | 7
-------------------------- | - | - | - | - | - | - | -
-Num of loci remaining / k | 118 | 104 | 99 | 97 | 95 | 90 | 84
-5. There are many NAs in single.group output, they may arise from
+4. There are many NAs in single.group output, they may arise from
    - low call rate (cutoff 90%)
    - low HWE pvalue (cutoff ?)
    - detected AF==0
+5. Number of loci remaining when requiring number of AF >= 1% for PCA plot
 ```
+Num of time that AF >= 1% | 1 | 2 | 3 | 4 | 5 | 6 | 7
+------------------------- | - | - | - | - | - | - | -
+Num of loci remaining / k | 118 | 104 | 99 | 97 | 95 | 90 | 84
+
 
 - **Error and solution**
 1. group.range function failed at chr2 and chr5
