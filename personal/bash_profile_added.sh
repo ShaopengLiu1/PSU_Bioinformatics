@@ -19,9 +19,6 @@ mkdir -p "$1"/{data,src,results,tool,doc}; touch "$1"/README.md;
 }
 
 #===================================
-
-
-
 #===================================
 # PSU-ICS specific
 ### Add PATH
@@ -33,6 +30,10 @@ export R_LIBS=/storage/home/sml6467/work/R/x86_64-redhat-linux-gnu-library/3.5:$
 
 ### alias
 alias qjob='qstat | grep sml6467'
+
+### freq modules 
+ml gcc/7.3.1
+ml ml python/3.6.3-anaconda5.0.1
 #===================================
 
 
