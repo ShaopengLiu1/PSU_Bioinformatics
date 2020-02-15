@@ -1,6 +1,6 @@
 # PSU_Bioinformatics  
 
-### Last update: 09/17/2019  
+### Last update: 02/15/2020    
 Repo to backup general scripts and for easy access outside PSU.  
 Contact: spliu@psu.edu
 
@@ -10,5 +10,5 @@ Contact: spliu@psu.edu
    - bash_profile
 - [x] Rotation_Dr. Dajiang Liu
 - [ ] Rotation_Dr. Qunhua Li
-- [ ] Rotation_Dr. David Koslicki
+- [x] Rotation_Dr. David Koslicki
 

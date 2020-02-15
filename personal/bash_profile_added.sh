@@ -33,7 +33,7 @@ alias qjob='qstat | grep sml6467'
 
 ### freq modules 
 ml gcc/7.3.1
-ml ml python/3.6.3-anaconda5.0.1
+ml python/3.6.3-anaconda5.0.1
 #===================================
 
 
