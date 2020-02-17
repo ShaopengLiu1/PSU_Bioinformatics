@@ -4,6 +4,8 @@
 ### remember to add "chmod u+x"
 ### check "crontab -e" for those cmds
 
+
+###### Backup project codes
 project_dir=/storage/home/sml6467/work/projects
 backup_dir=/storage/home/sml6467/backup/project_code
 remove_days=10
@@ -26,3 +28,14 @@ done
 
 echo "whole pipe done"
 date
+
+
+
+###### Refresh dates in /scratch
+num_date=`date +%d`
+if [ $num_date = 6 -o $num_date = 16 -o $num_date = 26 ]; then
+  cd /storage/home/sml6467/scratch
+  find . | xargs touch -a  
+fi
+
+
