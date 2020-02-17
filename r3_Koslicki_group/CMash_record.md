@@ -62,19 +62,19 @@
 
 2. Analysis plan:
 
-   - Pick several data pairs with similar JI (data from Dr. David)
-
-   - [ ] for (each pair data), pick a large end point, i.e. 61;
-
-     - [ ] ? pick a random sample size n
-
+   - Input data: /storage/home/sml6467/shaopeng_Koslicki_group/projects/202002_CMash_test/results/20200217_CMash_task1_trunction_kmer/small_data
+  - 159 files ~1.7M, ~6M characters
+     - Does the py code generates the clusters and then selected data from there?
+- [ ] for (each pair data), pick a large end point, i.e. 61;
+   
+  - [ ] ? pick a random sample size n
+   
      - for (k = seq 5 61 3)
      - find sketch of both under n MinHash
      - the overlap of AB sketch is true JI
      - [ ] for (i in seq 1 truncsize)
        - truncate both sketch for i letter from right
-       - calculate $JI^i_k$ as $JI^*$
-
+    - calculate $JI^i_k$ as $JI^*$
    - [ ] Collect all data, and plot the boxplot of $JI^*$ around JI
 
 3. Script function:
