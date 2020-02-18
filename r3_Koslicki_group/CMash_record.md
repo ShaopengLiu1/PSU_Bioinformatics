@@ -25,14 +25,13 @@
 3. Improvement of CMash:
    - Illustration: https://drive.google.com/open?id=16Mge3MG4v4tu_hyPtV_QCL72pAwUKHjn
    - Use only one hash function (instead of using many h(x) to get $h_{min}(X)$), pick the top n min values of h(A) and h(B) (n is random sample size).
-     - [ ] Q: which h to pick? By what standard?
-     - [ ] Q: in MinHash, do we merge dup k-mers and increase the weight of them for the TST?
+     - [x] Q: which h to pick? Ans: choose by convenience, usually use a well-designed one called "murmerhash3"
+     - [x] Q: in MinHash, do we merge dup k-mers and increase the weight of them for the TST? Ans: **No**, MinHash is based on distinct unweighted k-mer sets.
    - Collect all the elements $A_i$ and $B_i$ (the elements are various k-mers) that are corresponding to the top n $h^{i}_{min}$. 
      - Theoritically it might have collision in $A_i$ or $B_i$ (multiple keys -> same value), but in practive it has NOT been found
      - The collection file is called sketch for k-mer size of k.
      - We compare the overlap between different sketches, it's an **unbiased estimator** of Jaccard index
-     - [ ] Q: confirm unbiased estimator? Intuitively true
-     - [ ] Q: when we do overlap, we are doing overlap of 2 sets, not position-wise matching, is it correct?
+     - [x] Q: when we do overlap, we are doing overlap of 2 sets? Yes
 
 
 
@@ -44,13 +43,10 @@
    - conda env create -n CMash-env --file=${select_RedHat/Ubuntu_yml}
    - source activate CMash-env
 2. Test run:
-   - macOS is combined unix/linux, seems there are some dif from Ubuntu distribution that the yml can't work.
-   - AttributeError: Can't get attribute 'map_func' on <module '__mp_main__' from '/Users/shaopeng/github/CMash/scripts/StreamingQueryDNADatabase.py'>
    - Works well on ICS (redhat)
    - path: /storage/home/sml6467/scratch/tools/CMash_github_master/CMash/tests
-   - [ ] Do I need Ubuntu distritbution on macOS to run it locally?
 
-
+     
 
 ### Task 1: influence of truncation <a name="task1"></a>
 
@@ -62,22 +58,62 @@
 
 2. Analysis plan:
 
-   - Input data: /storage/home/sml6467/shaopeng_Koslicki_group/projects/202002_CMash_test/results/20200217_CMash_task1_trunction_kmer/small_data
-  - 159 files ~1.7M, ~6M characters
-     - Does the py code generates the clusters and then selected data from there?
-- [ ] for (each pair data), pick a large end point, i.e. 61;
-   
-  - [ ] ? pick a random sample size n
-   
-     - for (k = seq 5 61 3)
-     - find sketch of both under n MinHash
-     - the overlap of AB sketch is true JI
-     - [ ] for (i in seq 1 truncsize)
-       - truncate both sketch for i letter from right
-    - calculate $JI^i_k$ as $JI^*$
-   - [ ] Collect all data, and plot the boxplot of $JI^*$ around JI
+   - Input data: 
 
-3. Script function:
+     - Data infor: https://github.com/dkoslicki/CMash/tree/dataForShaopeng/dataForShaopeng
+     - ICS location: /storage/home/sml6467/shaopeng_Koslicki_group/projects/202002_CMash_test/results/20200217_CMash_task1_trunction_kmer/small_data
+     - 159 files ~1.7M, ~6M characters
+     - The py code is for clustering based on 61-mers
 
-   - 
+   - analysis plan:
+
+     1. Get cluster information (this is for reference when we check the variation, between-cluster and cross-cluster pairs may have different pattern)
+        - Code is provided by Dr. David
+
+     2. Find true CMash index (CI) for the curve: use all 165 genome as input, train the CMash database (TST+$sketch_k$) for all kmer sizes
+     3. Find the truncation variation: use the largest k-mer output (61), run trunction, this is the variation data.
+     4. Analysis plan: https://drive.google.com/open?id=1QtptgJkfn0Lc6lJraRYll1_Oda87POWT
+     5. Pseudo code:
+
+     ```
+     ### i) find true CI with k=61 + all variation data
+     max_k=61
+     TrainStreamingDNADatabase.py <all_genome> <max_k>  -> TB_61.hs
+     for gi in <all_genome>:
+       StreamingqueryDNADatabase.py	gi	TB_61.hs	1-61-3	-c 0 -l 0 
+     # In the output matrix: col[k=61] is the true value of each gi; col[k<61] is the variation due to truncation
+       
+     ### ii) find the true CI with all k<61
+     for max_k in range (1,58,3):
+       TrainStreamingDNADatabase.py <all_genome> <max_k>  -> TB_${max_k}.hs
+       for gi in <all_genome>:
+         StreamingqueryDNADatabase.py	gi	TB_${max_k}.hs	${max_k}-${max_k}-1	-c 0 -l 0 
+     # there will be 19 output, each of them is a true CI at k=${max_k}
+     ```
+
+     
+
+3. running code:
+
+- [ ] get clusters: 
+
+  ```bash
+  ls
+  ```
+
+- [ ] run k_mer = 61
+
+  ```bash
+  ls	
+  ```
+
+- [ ] run k_mer in range(1,58,3)
+
+  ```bash
+  ls
+  ```
+
+
+
+4. results:
 
