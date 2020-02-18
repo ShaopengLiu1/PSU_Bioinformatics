@@ -89,17 +89,14 @@
        for gi in <all_genome>:
          StreamingqueryDNADatabase.py	gi	TB_${max_k}.hs	${max_k}-${max_k}-1	-c 0 -l 0 
      # there will be 19 output, each of them is a true CI at k=${max_k}
+     
+     ### iii) clustering
+     run cluster_matrix(A_eps, A_indicies, cluster_eps=.01) on the TrainingDatabase_{n}_k_60.h5
      ```
 
      
 
 3. running code:
-
-- [ ] get clusters: 
-
-  ```bash
-  ls
-  ```
 
 - [ ] run k_mer = 61
 
@@ -113,7 +110,13 @@
   ls
   ```
 
+- [ ] Get clusters (code: https://github.com/dkoslicki/CMash/blob/dataForShaopeng/dataForShaopeng/generate_data.py)
 
+  ```bash
+  ls
+  ```
+
+  
 
 4. results:
 
