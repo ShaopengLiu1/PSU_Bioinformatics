@@ -73,50 +73,5 @@
      2. Find true CMash index (CI) for the curve: use all 165 genome as input, train the CMash database (TST+$sketch_k$) for all kmer sizes
      3. Find the truncation variation: use the largest k-mer output (61), run trunction, this is the variation data.
      4. Analysis plan: https://drive.google.com/open?id=1QtptgJkfn0Lc6lJraRYll1_Oda87POWT
-     5. Pseudo code:
-
-     ```
-     ### i) find true CI with k=61 + all variation data
-     max_k=61
-     TrainStreamingDNADatabase.py <all_genome> <max_k>  -> TB_61.hs
-     for gi in <all_genome>:
-       StreamingqueryDNADatabase.py	gi	TB_61.hs	1-61-3	-c 0 -l 0 
-     # In the output matrix: col[k=61] is the true value of each gi; col[k<61] is the variation due to truncation
-       
-     ### ii) find the true CI with all k<61
-     for max_k in range (1,58,3):
-       TrainStreamingDNADatabase.py <all_genome> <max_k>  -> TB_${max_k}.hs
-       for gi in <all_genome>:
-         StreamingqueryDNADatabase.py	gi	TB_${max_k}.hs	${max_k}-${max_k}-1	-c 0 -l 0 
-     # there will be 19 output, each of them is a true CI at k=${max_k}
      
-     ### iii) clustering
-     run cluster_matrix(A_eps, A_indicies, cluster_eps=.01) on the TrainingDatabase_{n}_k_60.h5
-     ```
-
-     
-
-3. running code:
-
-- [ ] run k_mer = 61
-
-  ```bash
-  ls	
-  ```
-
-- [ ] run k_mer in range(1,58,3)
-
-  ```bash
-  ls
-  ```
-
-- [ ] Get clusters (code: https://github.com/dkoslicki/CMash/blob/dataForShaopeng/dataForShaopeng/generate_data.py)
-
-  ```bash
-  ls
-  ```
-
-  
-
-4. results:
 
