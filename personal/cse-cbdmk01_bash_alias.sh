@@ -1,0 +1,28 @@
+# personal added bash start
+# last update 04/17/2020
+
+### time cmd
+alias ltime='/usr/bin/time -av -o temp_runLog'
+
+### add PATH variable
+export PATH="/data/sml6467/bin":$PATH
+
+### solve conda issue to call from bash script
+. /data/sml6467/software/miniconda3/etc/profile.d/conda.sh
+
+#===================================
+# Personal function
+### mkproject
+mkproject () {
+mkdir -p "$1"/{data,src,results,tool,doc}; touch "$1"/README.md;
+}
+#==================================
+# Temporary dir usage !!!!!
+alias work='cd /data/sml6467'
+alias src='cd /data/sml6467/projects/202002_CMash_test/src'
+alias result='cd /data/sml6467/projects/202002_CMash_test/results'
+alias github='cd /data/sml6467/github'
+
+
+
+
