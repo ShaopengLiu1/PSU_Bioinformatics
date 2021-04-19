@@ -17,11 +17,12 @@ mkproject () {
 mkdir -p "$1"/{data,src,results,tool,doc}; touch "$1"/README.md;
 }
 #==================================
-# Temporary dir usage !!!!!
+# Personal shortcuts
 alias work='cd /data/sml6467'
 alias src='cd /data/sml6467/projects/202002_CMash_test/src'
 alias result='cd /data/sml6467/projects/202002_CMash_test/results'
 alias github='cd /data/sml6467/github'
+alias tk='taxonkit --data-dir /data/sml6467/software/taxonkit_ref'
 
 
 
