@@ -14,16 +14,14 @@ export PATH="/data/sml6467/bin":$PATH
 # Personal function
 ### mkproject
 mkproject () {
-mkdir -p "$1"/{data,src,results,tool,doc}; touch "$1"/README.md;
+mkdir -p "$1"/{data,src,output}; touch "$1"/README.md;
 }
 #==================================
 # Personal shortcuts
-alias work='cd /data/sml6467'
-alias src='cd /data/sml6467/projects/202002_CMash_test/src'
-alias result='cd /data/sml6467/projects/202002_CMash_test/results'
 alias github='cd /data/sml6467/github'
 alias tk='taxonkit --data-dir /data/sml6467/software/taxonkit_ref'
-
-
+alias meta='cd /data/sml6467/github/Koslicki_lab_metagenomic_analysis'
+alias src='cd /data/sml6467/github/Koslicki_lab_metagenomic_analysis/src'
+alias project='cd /data/sml6467/projects'
 
 
